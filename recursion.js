@@ -38,3 +38,29 @@ if(n===0 || n===1){
 console.log(factorial(3))
 
 //The Fibonacci sequence
+//0, 1, 1, 2, 3, 5, 8, 13, ...
+//fib(n)=fib(n-1) +fib(n-2)
+
+function Fibonacci(n){
+    if(n===0){
+        return 0
+    } else if(n===1){
+        return 1
+    } else if(n>1){
+        return Fibonacci(n-1) + Fibonacci(n-2)
+    }
+}
+
+console.log(Fibonacci(5))
+
+//Count characters in a string
+//"hello" → 5
+
+function countChar(str){
+    if(str.length===0){
+        return 0
+    }else {
+        return 1 +countChar(str.slice(1) )
+    }
+}
+console.log(countChar("hello"))
