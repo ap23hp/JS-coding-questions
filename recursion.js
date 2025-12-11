@@ -64,3 +64,36 @@ function countChar(str){
     }
 }
 console.log(countChar("hello"))
+
+//Sum of digits of a number
+// 1234-> 1 + 2 + 3 + 4 = 10
+
+function sumDigits(num){
+  if(num === 0){
+      return 0;
+  } else {
+      return (num % 10) + sumDigits(Math.floor(num / 10));
+  }
+}
+
+console.log(sumDigits(1234)); // 10
+
+//Find max in array
+function findMax(arr){
+if(arr.length===1){
+    return arr[0]
+}else {
+    return  Math.max(arr[0], findMax(arr.slice(1)));
+}
+}
+
+console.log(findMax([3,8,9]))
+// Jab hum findMax([3, 8, 9]) call karte hain, 
+// toh function pehle apne aap ko chhote arrays ke saath baar-baar call karta chala jaata hai — 
+// pehle [3, 8, 9], phir [8, 9], phir [9]. Jaise-hi array [9] reh jaata hai, 
+// base case hit hota hai aur function 9 return kar deta hai. 
+// Ab recursion wapas neeche se upar results 
+// return karna shuru karta hai: [8, 9] wale step me Math.max(8, 9) = 9 milta hai, 
+// phir original call [3, 8, 9] me Math.max(3, 9) = 9 milta hai. Yani pehle recursion
+//  depth me jaata hai (har baar array chhota hota jaata hai), aur base case milte 
+// hi wapas upar aate hue har level apna comparison karta hai aur final answer return hota hai
